@@ -153,6 +153,35 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "swagger_server.controllers.type_align_controller"
+  /gfe/features:
+    get:
+      tags:
+        - "New Endpoint"
+      description: "Find the sequence differences between two GFE"
+      operationId: "testView_get"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "sequence"
+          in: "query"
+          description: "Valid consensus sequence"
+          required: false
+          type: "string"
+        - name: "locus"
+          in: "query"
+          description: "Valid consensus sequence"
+          required: false
+          type: "string"
+      responses:
+        200:
+          description: "HLA and GFE from consensus sequence"
+          schema:
+            $ref: "#/definitions/Typing"
+        404:
+          description: "Failed to generate allele call"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.test_view_controller"
 definitions:
   Error:
     type: "object"

@@ -21,7 +21,7 @@ gfe2hla = None
 seq2hla = None
 
 
-def typealign_get(sequence, locus=None, imgthla_version='3.31.0', neo4j_url="http://neo4j.b12x.org:80", user='neo4j', password='gfedb'):  # noqa: E501
+def typealign_get(sequence, locus=None, imgthla_version='3.31.0', neo4j_url="https://0.0.0.0:7474", user='neo4j', password='gfedb'):  # noqa: E501
     """typealign_get
 
     Get HLA and GFE from consensus sequence or GFE notation # noqa: E501
