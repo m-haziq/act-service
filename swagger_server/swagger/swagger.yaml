@@ -11,53 +11,53 @@ info:
     name: "GNU GENERAL PUBLIC LICENSE"
     url: "https://www.gnu.org/licenses/lgpl.html"
 tags:
-- name: "Type Seq"
-  description: "Endpoint to annotate and call allele names"
-- name: "Annotate"
-  description: "Annotate a sequence without making an allele call"
-- name: "Type Align"
-  description: "Experimental endpoint for producing annotations with sequence differences"
+  - name: "Type Seq"
+    description: "Endpoint to annotate and call allele names"
+  - name: "Annotate"
+    description: "Annotate a sequence without making an allele call"
+  - name: "Type Align"
+    description: "Experimental endpoint for producing annotations with sequence differences"
 paths:
   /type_seq:
     get:
       tags:
-      - "Type Seq"
+        - "Type Seq"
       description: "Get HLA and GFE from consensus sequence or GFE notation"
       operationId: "typeseq_get"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - name: "sequence"
-        in: "query"
-        description: "Consensus sequence"
-        required: true
-        type: "string"
-      - name: "locus"
-        in: "query"
-        description: "Valid HLA locus"
-        required: false
-        type: "string"
-      - name: "imgthla_version"
-        in: "query"
-        description: "IMGT/HLA DB Version"
-        required: false
-        type: "string"
-        default: "3.31.0"
-      - name: "neo4j_url"
-        in: "query"
-        description: "URL for the neo4j graph"
-        required: false
-        type: "string"
-      - name: "user"
-        in: "query"
-        description: "Username for the neo4j graph"
-        required: false
-        type: "string"
-      - name: "password"
-        in: "query"
-        description: "Password for the neo4j graph"
-        required: false
-        type: "string"
+        - name: "sequence"
+          in: "query"
+          description: "Consensus sequence"
+          required: true
+          type: "string"
+        - name: "locus"
+          in: "query"
+          description: "Valid HLA locus"
+          required: false
+          type: "string"
+        - name: "imgthla_version"
+          in: "query"
+          description: "IMGT/HLA DB Version"
+          required: false
+          type: "string"
+          default: "3.31.0"
+        - name: "neo4j_url"
+          in: "query"
+          description: "URL for the neo4j graph"
+          required: false
+          type: "string"
+        - name: "user"
+          in: "query"
+          description: "Username for the neo4j graph"
+          required: false
+          type: "string"
+        - name: "password"
+          in: "query"
+          description: "Password for the neo4j graph"
+          required: false
+          type: "string"
       responses:
         200:
           description: "HLA and GFE from consensus sequence"
@@ -71,28 +71,28 @@ paths:
   /annotate:
     get:
       tags:
-      - "Annotate"
+        - "Annotate"
       description: "Find the sequence differences between two GFE"
       operationId: "annotate_get"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - name: "sequence"
-        in: "query"
-        description: "Valid consensus sequence"
-        required: true
-        type: "string"
-      - name: "locus"
-        in: "query"
-        description: "Valid locus"
-        required: false
-        type: "string"
-      - name: "imgthla_version"
-        in: "query"
-        description: "IMGT/HLA DB Version"
-        required: false
-        type: "string"
-        default: "3.31.0"
+        - name: "sequence"
+          in: "query"
+          description: "Valid consensus sequence"
+          required: true
+          type: "string"
+        - name: "locus"
+          in: "query"
+          description: "Valid locus"
+          required: false
+          type: "string"
+        - name: "imgthla_version"
+          in: "query"
+          description: "IMGT/HLA DB Version"
+          required: false
+          type: "string"
+          default: "3.31.0"
       responses:
         200:
           description: "HLA and GFE from consensus sequence"
@@ -106,43 +106,43 @@ paths:
   /type_align:
     get:
       tags:
-      - "Type Align"
+        - "Type Align"
       description: "Get HLA and GFE from consensus sequence or GFE notation"
       operationId: "typealign_get"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - name: "sequence"
-        in: "query"
-        description: "Consensus sequence"
-        required: true
-        type: "string"
-      - name: "locus"
-        in: "query"
-        description: "Valid HLA locus"
-        required: false
-        type: "string"
-      - name: "imgthla_version"
-        in: "query"
-        description: "IMGT/HLA DB Version"
-        required: false
-        type: "string"
-        default: "3.31.0"
-      - name: "neo4j_url"
-        in: "query"
-        description: "URL for the neo4j graph"
-        required: false
-        type: "string"
-      - name: "user"
-        in: "query"
-        description: "Username for the neo4j graph"
-        required: false
-        type: "string"
-      - name: "password"
-        in: "query"
-        description: "Password for the neo4j graph"
-        required: false
-        type: "string"
+        - name: "sequence"
+          in: "query"
+          description: "Consensus sequence"
+          required: true
+          type: "string"
+        - name: "locus"
+          in: "query"
+          description: "Valid HLA locus"
+          required: false
+          type: "string"
+        - name: "imgthla_version"
+          in: "query"
+          description: "IMGT/HLA DB Version"
+          required: false
+          type: "string"
+          default: "3.31.0"
+        - name: "neo4j_url"
+          in: "query"
+          description: "URL for the neo4j graph"
+          required: false
+          type: "string"
+        - name: "user"
+          in: "query"
+          description: "Username for the neo4j graph"
+          required: false
+          type: "string"
+        - name: "password"
+          in: "query"
+          description: "Password for the neo4j graph"
+          required: false
+          type: "string"
       responses:
         200:
           description: "HLA and GFE from consensus sequence"
@@ -153,43 +153,87 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "swagger_server.controllers.type_align_controller"
-  /gfe/features:
-    get:
+  /gfe/{gene}/{locus}:
+    post:
       tags:
-        - "New Endpoint"
-      description: "Find the sequence differences between two GFE"
-      operationId: "testView_get"
-      produces:
+        - "sequence notation"
+      description: "post the sequence and get notation"
+      operationId: "gfeNotation_post"
+      summary: "Post a sequence to get feature and gfe"
+      consumes:
         - "application/json"
       parameters:
-        - name: "sequence"
-          in: "query"
-          description: "Valid consensus sequence"
-          required: false
-          type: "string"
         - name: "locus"
-          in: "query"
-          description: "Valid consensus sequence"
-          required: false
+          in: "path"
+          description: "Valid HLA locus"
+          required: true
           type: "string"
+        - name: "gene"
+          in: "path"
+          description: "KIR flag for gene"
+          required: true
+          type: "boolean"
+        - in: 'body'
+          name: 'sequence'
+          required: true
+          description: 'add the sequence to get the result'
+          schema:
+            type: 'object'
+            required:
+              - 'sequence'
+            properties:
+              sequence:
+                type: 'string'
       responses:
-        200:
-          description: "HLA and GFE from consensus sequence"
+        201:
+          description: 'Created'
+      x-swagger-router-controller: "swagger_server.controllers.gfe_notation_controller"
+  /gfe/seq/annotate/{gene}/{locus}:
+    post:
+      tags:
+        - "sequence annotation"
+      description: "post the sequence and get annotation"
+      operationId: "gfeAnnotation_post"
+      summary: "Post a sequence to get feature and gfe"
+      consumes:
+        - "application/json"
+      parameters:
+        - name: "locus"
+          in: "path"
+          description: "Valid HLA locus"
+          required: true
+          type: "string"
+        - name: "gene"
+          in: "path"
+          description: "KIR flag for gene"
+          required: true
+          type: "boolean"
+        - in: 'body'
+          name: 'sequence'
+          required: true
+          description: 'add the sequence to get the result'
           schema:
-            $ref: "#/definitions/Typing"
-        404:
-          description: "Failed to generate allele call"
-          schema:
-            $ref: "#/definitions/Error"
-      x-swagger-router-controller: "swagger_server.controllers.test_view_controller"
+            type: 'object'
+            required:
+              - 'sequence'
+            properties:
+              sequence:
+                type: 'string'
+      responses:
+        201:
+          description: 'Created'
+      x-swagger-router-controller: "swagger_server.controllers.gfe_annotation_controller"
+
+
+
 definitions:
   Error:
     type: "object"
     required:
-    - "Message"
-    - "gfedb_version"
-    - "imgtdb_version"
-    - "pygfe_version"
+      - "Message"
+      - "gfedb_version"
+      - "imgtdb_version"
+      - "pygfe_version"
     properties:
       Message:
         type: "string"
@@ -251,11 +295,11 @@ definitions:
       closest_gfe: "HLA-Aw1-1-7-20-10-32-7-1-1-1-6-1-5-3-5-1-1"
       differences: 10
       sequence_differences:
-      - term: "intron"
-        rank: 1
-        pos: 10
-        ref: "A"
-        inseq: "G"
+        - term: "intron"
+          rank: 1
+          pos: 10
+          ref: "A"
+          inseq: "G"
       protdiff:
         pos: 4
         location: "ARD"
@@ -263,16 +307,16 @@ definitions:
         inseq: "G"
       status: "novel"
       features:
-      - accession: 1
-        locus: "HLA-A"
-        rank: 1
-        term: "exon"
-        sequence: "ACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTG"
-      - accession: 2
-        locus: "HLA-A"
-        rank: 1
-        sequence: "ACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTG"
-        term: "exon"
+        - accession: 1
+          locus: "HLA-A"
+          rank: 1
+          term: "exon"
+          sequence: "ACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTG"
+        - accession: 2
+          locus: "HLA-A"
+          rank: 1
+          sequence: "ACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTGACTG"
+          term: "exon"
       act_version: "0.0.1"
       gfe_version: "0.0.1"
       gfedb_version: "0.0.1"
