@@ -360,6 +360,42 @@ paths:
           description: "Failed to create GFE from HLA sequence and locus"
       x-swagger-router-controller: "swagger_server.controllers.gfe_create_controller"
 
+  /gfe/kir/{gfe}:
+    get:
+      tags:
+        - "kir by gfe "
+      description: " Get Kir response"
+      operationId: "findkir_get"
+      consumes:
+        - "application/json"
+      parameters:
+        - name: "gfe"
+          in: "path"
+          description: "Valid GFE "
+          required: true
+          type: "string"
+        - name: "neo4j_url"
+          in: "query"
+          description: "URL for the neo4j graph"
+          required: false
+          type: "string"
+        - name: "user"
+          in: "query"
+          description: "Username for the neo4j graph"
+          required: false
+          type: "string"
+        - name: "password"
+          in: "query"
+          description: "Password for the neo4j graph"
+          required: false
+          type: "string"
+      responses:
+        200:
+          description: "created GFE from HLA sequence and locus"
+        404:
+          description: "Failed to create GFE from HLA sequence and locus"
+      x-swagger-router-controller: "swagger_server.controllers.find_kir_controller"
+
 
 
 definitions:
