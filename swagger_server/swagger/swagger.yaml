@@ -227,6 +227,28 @@ paths:
           description: 'Created'
       x-swagger-router-controller: "swagger_server.controllers.gfe_annotation_controller"
 
+  /gfe/features/{locus}:
+    get:
+      tags:
+        - "features of locus"
+      description: "Returns all features associated with a locus"
+      operationId: "locusfeature_get"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "locus"
+          in: "path"
+          description: "string containing HLA locus"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "list of features associated with this locus"
+        404:
+          description: "Failed to load the features of locus"
+      x-swagger-router-controller: "swagger_server.controllers.locus_feature_controller"
+
+
 
 definitions:
   Error:
