@@ -396,6 +396,28 @@ paths:
           description: "Failed to create GFE from HLA sequence and locus"
       x-swagger-router-controller: "swagger_server.controllers.find_kir_controller"
 
+  /gfe/locus/{imgt_releases}:
+    get:
+      tags:
+        - "db releases"
+      description: " Get all db releases"
+      operationId: "allreleases_get"
+      consumes:
+        - "application/json"
+      parameters:
+        - name: "imgt_releases"
+          in: "path"
+          description: "Valid imgt_releases "
+          required: true
+          type: "string"
+          default: '3.31.0'
+      responses:
+        200:
+          description: "listed all HLA_DB"
+        404:
+          description: "Failed "
+      x-swagger-router-controller: "swagger_server.controllers.all_releases_controller"
+
 
 
 definitions:
