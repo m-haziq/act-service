@@ -153,6 +153,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "swagger_server.controllers.type_align_controller"
+
   /gfe/{gene}/{locus}:
     post:
       tags:
@@ -173,6 +174,7 @@ paths:
           description: "KIR flag for gene"
           required: true
           type: "boolean"
+          default: false
         - in: 'body'
           name: 'sequence'
           required: true
@@ -188,42 +190,6 @@ paths:
         201:
           description: 'Created'
       x-swagger-router-controller: "swagger_server.controllers.gfe_notation_controller"
-  /gfe/seq/annotate/{gene}/{locus}:
-    post:
-      tags:
-        - "sequence annotation"
-      description: "post the sequence and get annotation"
-      operationId: "gfeAnnotation_post"
-      summary: "Post a sequence to get feature and gfe"
-      consumes:
-        - "application/json"
-      parameters:
-        - name: "locus"
-          in: "path"
-          description: "Valid HLA locus"
-          required: true
-          type: "string"
-        - name: "gene"
-          in: "path"
-          description: "KIR flag for gene"
-          required: true
-          type: "boolean"
-        - in: 'body'
-          name: 'sequence'
-          required: true
-          description: 'add the sequence to get the result'
-          schema:
-            type: 'object'
-            required:
-              - 'sequence'
-            properties:
-              sequence:
-                type: 'string'
-      responses:
-        201:
-          description: 'Created'
-      x-swagger-router-controller: "swagger_server.controllers.gfe_annotation_controller"
-
 
 
 definitions:
